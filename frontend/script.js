@@ -106,10 +106,9 @@ class ZCaptchaClient {
             const result = await response.json();
 
             if (result.success) {
-                this.showSuccessModal(result.difficulty);
                 setTimeout(() => {
                     window.location.href = returnUrl;
-                }, 2000);
+                }, 3000);
             } else {
                 this.showErrorModal(result.message);
             }
@@ -119,15 +118,6 @@ class ZCaptchaClient {
         }
     }
     
-    showSuccessModal(difficulty) {
-        const modal = this.createModal(
-            'Verification Successful', 
-            `Captcha verified!`, 
-            'text-green-600'
-        );
-        document.body.appendChild(modal);
-        setTimeout(() => document.body.removeChild(modal), 2000);
-    }
 
     showErrorModal(message) {
         const modal = this.createModal(
