@@ -1,0 +1,32 @@
+{
+    "captcha_settings": {
+        "difficulty_levels": {
+            "easy": {
+                "length": 4,
+                "noise_level": 1,
+                "complexity": 3
+            },
+            "medium": {
+                "length": 5,
+                "noise_level": 2,
+                "complexity": 2
+            },
+            "hard": {
+                "length": 6,
+                "noise_level": 3,
+                "complexity": 1
+            }
+        },
+        "timeout_seconds": 30,
+        "max_attempts": 3,
+        "max_refresh_attempts": 3
+    },
+    "security": {
+        "block_duration": 300,
+        "verification_cookie_duration": 3600
+    },
+    "redirect": {
+        "success_url": "../return.html",
+        "default_url": "../index.php"
+    }
+}
