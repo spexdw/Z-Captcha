@@ -106,9 +106,7 @@ class ZCaptchaClient {
             const result = await response.json();
 
             if (result.success) {
-                setTimeout(() => {
-                    window.location.href = returnUrl;
-                }, 3000);
+                this.showSuccessModal();
             } else {
                 this.showErrorModal(result.message);
             }
@@ -117,7 +115,19 @@ class ZCaptchaClient {
             this.showErrorToast('Verification failed. Please try again.');
         }
     }
-    
+
+    showSuccessModal(){
+        const returnUrl = document.getElementById('returnUrl').value;
+        const modal = this.createModal(
+            'Verification Successful',
+            `Captcha verified! <br>Redirecting to: ${returnUrl}`,
+            'text-green-400'
+        );
+        document.body.appendChild(modal);
+        setTimeout(() => {
+            window.location.href = returnUrl;
+        }, 3000);
+    };
 
     showErrorModal(message) {
         const modal = this.createModal(
