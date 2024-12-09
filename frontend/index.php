@@ -89,23 +89,5 @@ $returnUrl = isset($_GET['return']) ? urldecode($_GET['return']) : '../passed.ht
     </div>
 
     <script src="script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const zCaptcha = new ZCaptchaClient();
-
-            zCaptcha.showSuccessModal = function(difficulty) {
-                const returnUrl = document.getElementById('returnUrl').value;
-                const modal = this.createModal(
-                    'Verification Successful', 
-                    `Captcha verified! <br>Redirecting to: ${returnUrl}`, 
-                    'text-green-400'
-                );
-                document.body.appendChild(modal);
-                setTimeout(() => {
-                    window.location.href = returnUrl;
-                }, 2000);
-            };
-        });
-    </script>
 </body>
 </html>
